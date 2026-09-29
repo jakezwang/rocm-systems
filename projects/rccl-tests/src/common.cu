@@ -37,9 +37,11 @@ extern char **environ;
 #if defined(NCCL_OS_LINUX)
 #pragma weak ncclCommWindowRegister
 #pragma weak ncclCommWindowDeregister
+#if NCCL_VERSION_CODE < NCCL_VERSION(2,32,0)
 #pragma weak ncclDevCommCreate
 #pragma weak ncclDevCommDestroy
 #pragma weak ncclCommQueryProperties
+#endif
 #endif
 
 #define DIVUP(x, y) \
